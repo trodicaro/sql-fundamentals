@@ -19,19 +19,19 @@ class FullTextSearchMigrationTest {
   public async productIndicesPresent() {
     let db = await getDb();
     assert.includeMembers(
-      (await db.getIndicesForTable('product')).map(s => s.toLowerCase()),
+      (await db.getIndicesForTable('Product')).map(s => s.toLowerCase()),
       ['product_fts']
     );
     assert.includeMembers(
-      (await db.getIndicesForTable('customer')).map(s => s.toLowerCase()),
+      (await db.getIndicesForTable('Customer')).map(s => s.toLowerCase()),
       ['customer_fts']
     );
     assert.includeMembers(
-      (await db.getIndicesForTable('supplier')).map(s => s.toLowerCase()),
+      (await db.getIndicesForTable('Supplier')).map(s => s.toLowerCase()),
       ['supplier_fts']
     );
     assert.includeMembers(
-      (await db.getIndicesForTable('employee')).map(s => s.toLowerCase()),
+      (await db.getIndicesForTable('Employee')).map(s => s.toLowerCase()),
       ['employee_fts']
     );
   }
