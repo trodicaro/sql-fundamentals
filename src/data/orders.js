@@ -1,7 +1,14 @@
 import { getDb } from '../db/utils';
 import { sql } from '../sql-string';
 
-export const ALL_ORDERS_COLUMNS = ['*'];
+export const ALL_ORDERS_COLUMNS = [
+  'id',
+  'customerid',
+  'employeeid',
+  'shipcity',
+  'shipcountry',
+  'shippeddate'
+];
 export const ORDER_COLUMNS = ['*'];
 
 /**
@@ -18,7 +25,7 @@ export const ORDER_COLUMNS = ['*'];
  * @type {Readonly<OrderCollectionOptions>}
  */
 const DEFAULT_ORDER_COLLECTION_OPTIONS = Object.freeze(
-  /** @type {OrderCollectionOptions}*/ ({
+  /** @type {OrderCollectionOptions}*/({
     order: 'asc',
     page: 1,
     perPage: 20,
