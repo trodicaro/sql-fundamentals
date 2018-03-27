@@ -69,9 +69,10 @@ getCustomerOrders('ALFKI', { page: 5, perPage: 10 });
 SELECT ${ALL_ORDERS_COLUMNS.map(x => `co.${x}`).join(',')},
   c.companyname AS customername,
   e.lastname AS employeename
-FROM CustomerOrder AS co ${whereClause}
+FROM CustomerOrder AS co
 LEFT JOIN Customer AS c ON co.customerid = c.id
 LEFT JOIN Employee AS e ON co.employeeid = e.id
+ ${whereClause}
 ${sortClause}
 ${paginationClause}`);
 }
